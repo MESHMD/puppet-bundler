@@ -2,6 +2,7 @@ define bundler::bundle (
     $source,
     $gems,
     $timeout = 300,
+    $logoutput = on_failure,
 ){
   include bundler
 
@@ -16,6 +17,7 @@ define bundler::bundle (
     cwd         => dirname("${name}"),
     refreshonly => true,
     timeout     => $timeout,
+    logoutput   => $logoutput,
   }
 
 }
